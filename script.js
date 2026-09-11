@@ -13,7 +13,7 @@ const COMPANY_CONFIG = {
   responsibleEngineer: 'Eng. Paulo Macedo Silva',
   crea: 'CREA-SP com ART / Visto Nacional',
   phone: '55 11 92019-0370',
-  whatsapp: '55920190370',
+  whatsapp: '11920190370',
   email: 'paulo@pm7engenharia.com.br',
   website: 'www.pm7engenharia.com.br',
   address: 'São Paulo - SP',

@@ -33,7 +33,7 @@
         <span>Responsabilidade Técnica com ART em 100% das obras</span>
       </div>
       <div class="top-bar-right">
-        <a href="tel:55920190370" style="display: flex; align-items: center; gap: 0.35rem; color: #cbd5e1;">
+        <a href="tel:11920190370" style="display: flex; align-items: center; gap: 0.35rem; color: #cbd5e1;">
           <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span data-company-phone>55 11 92019-0370</span>
         </a>
@@ -65,24 +65,17 @@
 
         <ul class="nav-links">
           <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#obras">Obras e Projetos</a></li>
-          <li><a href="#credenciais">Normas & NR-10</a></li>
           <li><a href="#empresa">A Empresa</a></li>
-          <li><a href="#clientes">Clientes</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
 
         <div class="nav-actions">
-          <button class="btn btn-outline-dark btn-sm" onclick="document.getElementById('estimatorModalOverlay').classList.add('active'); calculateScope();">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-            <span>Simular Escopo</span>
-          </button>
           <a href="#contato" class="btn btn-primary btn-sm">
             <span>Solicitar Orçamento</span>
           </a>
         </div>
 
-        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir Menu">
+        <button class="mobile-menu-toggle" id="btnMobileMenu" aria-label="Abrir Menu">
           ☰
         </button>
       </nav>
@@ -91,18 +84,18 @@
     <!-- Gaveta Mobile -->
     <div class="mobile-drawer" id="mobileDrawer">
       <ul>
-        <li><a href="#servicos" onclick="closeMobileMenu()">Serviços Técnicos</a></li>
-        <li><a href="#obras" onclick="closeMobileMenu()">Obras Realizadas</a></li>
-        <li><a href="#credenciais" onclick="closeMobileMenu()">Normas, ART & NR-10</a></li>
-        <li><a href="#empresa" onclick="closeMobileMenu()">A Empresa e Metodologia</a></li>
-        <li><a href="#clientes" onclick="closeMobileMenu()">Clientes & Depoimentos</a></li>
-        <li><a href="#contato" onclick="closeMobileMenu()">Fale Conosco / Orçamento</a></li>
+        <li><a href="#servicos" class="mobile-link">Serviços Técnicos</a></li>
+        <li><a href="#obras" class="mobile-link">Obras Realizadas</a></li>
+        <li><a href="#credenciais" class="mobile-link">Normas, ART & NR-10</a></li>
+        <li><a href="#empresa" class="mobile-link">A Empresa e Metodologia</a></li>
+        <li><a href="#clientes" class="mobile-link">Clientes & Depoimentos</a></li>
+        <li><a href="#contato" class="mobile-link">Fale Conosco / Orçamento</a></li>
       </ul>
       <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-        <button class="btn btn-outline-dark btn-block" onclick="closeMobileMenu(); document.getElementById('estimatorModalOverlay').classList.add('active'); calculateScope();">
+        <button class="btn btn-outline-dark btn-block" id="btnSimularMobile">
           Simular Pré-Escopo Técnico
         </button>
-        <a href="#contato" class="btn btn-primary btn-block" onclick="closeMobileMenu()">
+        <a href="#contato" class="btn btn-primary btn-block mobile-link">
           Solicitar Orçamento com ART
         </a>
       </div>
@@ -118,20 +111,14 @@
         
         <!-- Coluna Esquerda: Texto de Impacto -->
         <div>
-          <div class="hero-badge">
-            <span class="pulse-dot"></span>
-            <span>Engenharia Especializada em Média & Baixa Tensão</span>
-            <span>•</span>
-            <span style="color: #cbd5e1;">ART Inclusa</span>
-          </div>
-
           <h1 class="hero-title">
-            Engenharia Elétrica de Alta Precisão para <span>Projetos, Obras e Laudos Técnicos</span>
+            Engenharia Elétrica <br>
+            <span>Projetos, Obras e Laudos Técnicos</span>
           </h1>
 
           <p class="hero-desc">
-            Desenvolvemos subestações de energia, quadros QGBT, laudos periciais de SPDA e conformidade NR-10.
-            Segurança operacional, homologação ágil junto às concessionárias e zero paradas não programadas para sua indústria ou comércio.
+            Desenvolvimento de projetos elétricos, para data centers, compatibilização de disciplinas como arquitetura, ar condicionado, incêndio, CFTV, Telecom.
+            Organização de projetos e apoio as equipes de obras.  
           </p>
 
           <div class="hero-trust-bullets">
@@ -162,7 +149,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span>Falar no WhatsApp</span>
             </a>
-            <button class="btn btn-outline-dark" onclick="document.getElementById('estimatorModalOverlay').classList.add('active'); calculateScope();">
+            <button class="btn btn-outline-dark" id="btnSimularHero">
               <span>Simular Pré-Escopo</span>
             </button>
           </div>
@@ -180,7 +167,7 @@
                 <span data-company-engineer>Eng. Paulo Macedo Silva</span>
               </div>
               <div class="hero-logo-meta">
-                <a href="tel:55920190370" class="hero-logo-link">
+                <a href="tel:11920190370" class="hero-logo-link">
                   <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                   <span>Fone: <strong data-company-phone>55 11 92019-0370</strong></span>
                 </a>
@@ -285,10 +272,10 @@
             </div>
           </div>
           <div class="service-actions">
-            <button class="toggle-deliverables-btn" onclick="toggleDeliverables('deliv-1')">
+            <button class="toggle-deliverables-btn" data-target="deliv-1">
               <span>Ver Entregáveis e Escopo Detalhado</span> ▾
             </button>
-            <button class="btn btn-primary btn-sm btn-block" onclick="selectServiceForQuote('Projetos Elétricos Executivos')">
+            <button class="btn btn-primary btn-sm btn-block quote-service-btn" data-service="Projetos Elétricos Executivos">
               Solicitar Orçamento deste Serviço
             </button>
           </div>
@@ -322,10 +309,10 @@
             </div>
           </div>
           <div class="service-actions">
-            <button class="toggle-deliverables-btn" onclick="toggleDeliverables('deliv-2')">
+            <button class="toggle-deliverables-btn" data-target="deliv-2">
               <span>Ver Entregáveis e Escopo Detalhado</span> ▾
             </button>
-            <button class="btn btn-primary btn-sm btn-block" onclick="selectServiceForQuote('Subestações e Cabines Primárias')">
+            <button class="btn btn-primary btn-sm btn-block quote-service-btn" data-service="Subestações e Cabines Primárias">
               Solicitar Orçamento deste Serviço
             </button>
           </div>
@@ -359,10 +346,10 @@
             </div>
           </div>
           <div class="service-actions">
-            <button class="toggle-deliverables-btn" onclick="toggleDeliverables('deliv-3')">
+            <button class="toggle-deliverables-btn" data-target="deliv-3">
               <span>Ver Entregáveis e Escopo Detalhado</span> ▾
             </button>
-            <button class="btn btn-primary btn-sm btn-block" onclick="selectServiceForQuote('Instalações e Obras Industriais (QGBT)')">
+            <button class="btn btn-primary btn-sm btn-block quote-service-btn" data-service="Instalações e Obras Industriais (QGBT)">
               Solicitar Orçamento deste Serviço
             </button>
           </div>
@@ -396,10 +383,10 @@
             </div>
           </div>
           <div class="service-actions">
-            <button class="toggle-deliverables-btn" onclick="toggleDeliverables('deliv-4')">
+            <button class="toggle-deliverables-btn" data-target="deliv-4">
               <span>Ver Entregáveis e Escopo Detalhado</span> ▾
             </button>
-            <button class="btn btn-primary btn-sm btn-block" onclick="selectServiceForQuote('Laudos Técnicos e Termografia (SPDA)')">
+            <button class="btn btn-primary btn-sm btn-block quote-service-btn" data-service="Laudos Técnicos e Termografia (SPDA)">
               Solicitar Orçamento deste Serviço
             </button>
           </div>
@@ -433,10 +420,10 @@
             </div>
           </div>
           <div class="service-actions">
-            <button class="toggle-deliverables-btn" onclick="toggleDeliverables('deliv-5')">
+            <button class="toggle-deliverables-btn" data-target="deliv-5">
               <span>Ver Entregáveis e Escopo Detalhado</span> ▾
             </button>
-            <button class="btn btn-primary btn-sm btn-block" onclick="selectServiceForQuote('Adequação NR-10 e Prontuário Elétrico')">
+            <button class="btn btn-primary btn-sm btn-block quote-service-btn" data-service="Adequação NR-10 e Prontuário Elétrico">
               Solicitar Orçamento deste Serviço
             </button>
           </div>
@@ -470,10 +457,10 @@
             </div>
           </div>
           <div class="service-actions">
-            <button class="toggle-deliverables-btn" onclick="toggleDeliverables('deliv-6')">
+            <button class="toggle-deliverables-btn" data-target="deliv-6">
               <span>Ver Entregáveis e Escopo Detalhado</span> ▾
             </button>
-            <button class="btn btn-primary btn-sm btn-block" onclick="selectServiceForQuote('Eficiência Energética e Banco de Capacitores')">
+            <button class="btn btn-primary btn-sm btn-block quote-service-btn" data-service="Eficiência Energética e Banco de Capacitores">
               Solicitar Orçamento deste Serviço
             </button>
           </div>
@@ -485,193 +472,11 @@
   </section>
 
   <!-- ==========================================================================
-       PORTFÓLIO DE OBRAS REALIZADAS COM MODAL
-       ========================================================================== -->
-  <section class="section" id="obras" style="background-color: #ffffff;">
-    <div class="container">
-      
-      <div class="section-header">
-        <div class="section-badge">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          <span>Portfólio & Obras Realizadas</span>
-        </div>
-        <h2 class="section-title">Casos de Engenharia Executados com Excelência</h2>
-        <p class="section-subtitle">
-          Conheça algumas das obras e intervenções de média e baixa tensão entregues em indústrias,
-          centros de distribuição e empreendimentos comerciais de grande porte.
-        </p>
-      </div>
-
-      <!-- Filtros por Categoria -->
-      <div class="filter-tabs">
-        <button class="filter-btn active" data-cat="todos">Todos os Projetos</button>
-        <button class="filter-btn" data-cat="subestacoes">Subestações & MT</button>
-        <button class="filter-btn" data-cat="instalacoes">Instalações & QGBT</button>
-        <button class="filter-btn" data-cat="laudos">Laudos & SPDA</button>
-        <button class="filter-btn" data-cat="projetos">Projetos Executivos</button>
-      </div>
-
-      <!-- Grid Renderizado via JS -->
-      <div class="projects-grid" id="projectsContainer"></div>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       NORMAS TÉCNICAS, ART DO CREA & COMPLIANCE
-       ========================================================================== -->
-  <section class="section-dark section" id="credenciais">
-    <div class="container">
-      
-      <div class="section-header">
-        <div class="section-badge section-badge-dark">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-          <span>Rigor Normativo & Responsabilidade Civil</span>
-        </div>
-        <h2 class="section-title">Credenciais, Normas e Conformidade Técnica</h2>
-        <p class="section-subtitle">
-          Instalações elétricas industriais exigem conformidade irrestrita às normas vigentes da ABNT e do Ministério do Trabalho. 
-          Garantimos blindagem jurídica, segurança patrimonial e cobertura securitária.
-        </p>
-      </div>
-
-      <div class="credentials-grid">
-        
-        <div class="credential-card">
-          <div>
-            <div class="cred-top">
-              <span class="cred-code">CREA & ART</span>
-              <span class="cred-cat">Órgão Regulador</span>
-            </div>
-            <h3>Registro Corporativo e Anotação de Responsabilidade Técnica</h3>
-            <p>Empresa e equipe técnica devidamente registradas no CREA. Toda obra e projeto conta com emissão imediata de ART de projeto ou execução.</p>
-          </div>
-          <div class="cred-validity">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Registro Ativo e Regularizado com Visto Nacional</span>
-          </div>
-        </div>
-
-        <div class="credential-card">
-          <div>
-            <div class="cred-top">
-              <span class="cred-code">NR-10</span>
-              <span class="cred-cat">Segurança Ocupacional</span>
-            </div>
-            <h3>Segurança em Instalações e Serviços em Eletricidade</h3>
-            <p>Equipe 100% capacitada no treinamento básico e complementar (SEP - Sistema Elétrico de Potência), garantindo intervenções seguras e sem risco.</p>
-          </div>
-          <div class="cred-validity">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Certificação Bienal Obrigatória Atualizada</span>
-          </div>
-        </div>
-
-        <div class="credential-card">
-          <div>
-            <div class="cred-top">
-              <span class="cred-code">NR-35</span>
-              <span class="cred-cat">Segurança Ocupacional</span>
-            </div>
-            <h3>Trabalho em Altura em Montagens Industriais</h3>
-            <p>Atestados de saúde ocupacional (ASO) específicos e certificação para intervenções em bandejamentos aéreos, postes e estruturas elevadas.</p>
-          </div>
-          <div class="cred-validity">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Conformidade integral com EPIs e Linhas de Vida</span>
-          </div>
-        </div>
-
-        <div class="credential-card">
-          <div>
-            <div class="cred-top">
-              <span class="cred-code">NBR 5410</span>
-              <span class="cred-cat">Norma ABNT</span>
-            </div>
-            <h3>Instalações Elétricas em Baixa Tensão</h3>
-            <p>Norma-mãe brasileira para dimensionamento de condutores, eletrodutos, quadros de distribuição, proteção diferencial-residual (DR) e aterramento.</p>
-          </div>
-          <div class="cred-validity">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Critérios estritos de queda de tensão e ampacidade</span>
-          </div>
-        </div>
-
-        <div class="credential-card">
-          <div>
-            <div class="cred-top">
-              <span class="cred-code">NBR 14039</span>
-              <span class="cred-cat">Norma ABNT</span>
-            </div>
-            <h3>Instalações de Média Tensão (1,0 kV a 36,2 kV)</h3>
-            <p>Diretrizes para subestações consumidoras, chaves seccionadoras, disjuntores de MT a vácuo/SF6, aterramento de cercas e isolação dielétrica.</p>
-          </div>
-          <div class="cred-validity">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Homologação perante distribuidoras de energia</span>
-          </div>
-        </div>
-
-        <div class="credential-card">
-          <div>
-            <div class="cred-top">
-              <span class="cred-code">NBR 5419</span>
-              <span class="cred-cat">Norma ABNT</span>
-            </div>
-            <h3>Proteção contra Descargas Atmosféricas (SPDA)</h3>
-            <p>Gerenciamento de risco, proteção física contra raios (método Franklin e Gaiola de Faraday) e medidas de proteção contra surtos elétricos (MPS).</p>
-          </div>
-          <div class="cred-validity">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Partes 1, 2, 3 e 4 da revisão oficial em vigor</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Banner de Proteção Jurídica da ART -->
-      <div class="legal-banner">
-        <div class="legal-left">
-          <div style="color: #f59e0b; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">
-            Por que a ART do CREA é indispensável para sua empresa?
-          </div>
-          <h4>Proteção contra autuações trabalhistas, recusa de seguradoras e risco de sinistro</h4>
-          <p>
-            A Anotação de Responsabilidade Técnica (ART) vincula formalmente o Engenheiro Eletricista à obra.
-            Sem ela, sua empresa fica desprotegida perante seguradoras em caso de curto-circuito ou princípio de incêndio e exposta a multas gravíssimas dos auditores fiscais da NR-10.
-          </p>
-          <div class="legal-bullets">
-            <div>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Cobertura plena em apólices de seguro patrimonial</span>
-            </div>
-            <div>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Laudos aceitos pelo Corpo de Bombeiros (AVCB)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="legal-card-cta">
-          <h5>Precisa regularizar seu Prontuário ou Laudo?</h5>
-          <p>Realizamos vistoria diagnóstica imediata em sua planta fabril com emissão de parecer pericial.</p>
-          <a href="#contato" class="btn btn-primary btn-block btn-sm">
-            Solicitar Vistoria Técnica
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================================
        A EMPRESA, EQUIPE & METODOLOGIA
        ========================================================================== -->
   <section class="section" id="empresa" style="background-color: #f8fafc;">
     <div class="container">
-      <div class="about-grid">
-        
-        <div class="about-left">
+      <div class="about-left">
           <div class="section-badge">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="22.01"/><line x1="15" y1="22" x2="15" y2="22.01"/><line x1="9" y1="18" x2="9" y2="18.01"/><line x1="15" y1="18" x2="15" y2="18.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/></svg>
             <span>Sobre a Engenharia</span>
@@ -722,163 +527,7 @@
             </div>
           </div>
         </div>
-
-        <div class="methodology-card">
-          <h3>
-            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #f59e0b;"></span>
-            Metodologia Executiva Padronizada
-          </h3>
-          <p>Ciclo de vida estruturado para garantir zero atrasos e previsibilidade total de custos:</p>
-
-          <div class="method-steps">
-            <div class="method-step">
-              <div class="step-num">1</div>
-              <div class="step-info">
-                <h4>Vistoria de Campo & Diagnóstico</h4>
-                <p>Levantamento de cargas, medição geométrica e análise de viabilidade na concessionária de energia.</p>
-              </div>
-            </div>
-
-            <div class="method-step">
-              <div class="step-num">2</div>
-              <div class="step-info">
-                <h4>Engenharia de Detalhamento</h4>
-                <p>Cálculos de curto-circuito, dimensionamento de cabos, diagramas unifilares e memoriais descritivos.</p>
-              </div>
-            </div>
-
-            <div class="method-step">
-              <div class="step-num">3</div>
-              <div class="step-info">
-                <h4>Montagem Eletromecânica</h4>
-                <p>Instalação de barramentos, transformadores, leitos e passagem de cabos com controle diário de obra (RDO).</p>
-              </div>
-            </div>
-
-            <div class="method-step">
-              <div class="step-num">4</div>
-              <div class="step-info">
-                <h4>Comissionamento & Energização</h4>
-                <p>Ensaios de rigidez dielétrica, parametrização de relés, emissão de ART conclusiva e acompanhamento da ligação.</p>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #334155; font-size: 0.75rem; color: #94a3b8; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="color: #10b981; font-weight: bold;">✔</span>
-            <span>Supervisão direta por Engenheiro Eletricista em 100% das etapas.</span>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       CLIENTES ATENDIDOS & DEPOIMENTOS
-       ========================================================================== -->
-  <section class="section" id="clientes" style="background-color: #ffffff;">
-    <div class="container">
-      
-      <div class="section-header">
-        <div class="section-badge">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
-          <span>Confiança & Parcerias Industriais</span>
-        </div>
-        <h2 class="section-title">Clientes e Segmentos que Confiam em Nossa Engenharia</h2>
-        <p class="section-subtitle">
-          Atendemos plantas industriais, operadoras de galpões logísticos e grandes redes corporativas
-          onde a confiabilidade do fornecimento de energia é um ativo crítico de negócio.
-        </p>
-      </div>
-
-      <!-- Segmentos Atendidos -->
-      <div class="sectors-grid">
-        <div class="sector-box">
-          <strong>Farmacêutico</strong>
-          <small>Indústrias & Labs</small>
-        </div>
-        <div class="sector-box">
-          <strong>Logística AAA</strong>
-          <small>Centros de Distribuição</small>
-        </div>
-        <div class="sector-box">
-          <strong>Siderurgia</strong>
-          <small>Metalmecânica Pesada</small>
-        </div>
-        <div class="sector-box">
-          <strong>Varejo & Atacado</strong>
-          <small>Hipermercados & Malls</small>
-        </div>
-        <div class="sector-box">
-          <strong>Alimentício</strong>
-          <small>Usinas & Frigoríficos</small>
-        </div>
-        <div class="sector-box">
-          <strong>Facilities</strong>
-          <small>Torres Corporativas</small>
-        </div>
-      </div>
-
-      <!-- Depoimentos Reais -->
-      <div class="testimonials-grid">
-        
-        <div class="testimonial-card">
-          <div>
-            <div class="stars">★★★★★</div>
-            <p>"A execução da cabine primária de 3.000 kVA foi concluída dentro do prazo mais agressivo que já enfrentamos. A aprovação na Enel foi sem nenhuma ressalva e o comissionamento técnico foi exemplar."</p>
-          </div>
-          <div class="author-meta">
-            <h4>Carlos Eduardo Silveira</h4>
-            <span>Gerente Geral de Engenharia & Manutenção</span>
-            <small>Complexo Logístico Integração</small>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div>
-            <div class="stars">★★★★★</div>
-            <p>"A substituição do QGBT de 4.000A durante o shutdown da fábrica foi cirúrgica. Ter engenheiros presentes em tempo real e ensaios documentados nos deu total segurança operacional."</p>
-          </div>
-          <div class="author-meta">
-            <h4>Engª Mariana Freitas</h4>
-            <span>Coordenadora de Utilidades Industriais</span>
-            <small>FarmaBio Soluções</small>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div>
-            <div class="stars">★★★★★</div>
-            <p>"O laudo pericial de SPDA e a adequação do banco de capacitores não apenas eliminaram a multa de reativos na fatura em 4 meses, como zeraram as queimas de placas dos tornos CNC."</p>
-          </div>
-          <div class="author-meta">
-            <h4>Roberto Albuquerque</h4>
-            <span>Diretor de Operações</span>
-            <small>Aliança Metalúrgica</small>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Barra de Números de Desempenho -->
-      <div class="performance-stats-bar">
-        <div>
-          <div class="stat-num">99,4%</div>
-          <div class="stat-desc">Aprovação de Projetos no 1º Protocolo</div>
-        </div>
-        <div style="width: 1px; height: 3rem; background: #334155;" class="hidden-mobile"></div>
-        <div>
-          <div class="stat-num" style="color: #ffffff;">100%</div>
-          <div class="stat-desc">Pontualidade em Paradas Industriais</div>
-        </div>
-        <div style="width: 1px; height: 3rem; background: #334155;" class="hidden-mobile"></div>
-        <div>
-          <div class="stat-num" style="color: #10b981;">R$ 0</div>
-          <div class="stat-desc">Multas ou Sinistros em Obras Executadas</div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -922,7 +571,7 @@
             </div>
             <div>
               <span>Telefone de Contato</span>
-              <a href="tel:55920190370" data-company-phone>55 11 92019-0370</a>
+              <a href="tel:11920190370" data-company-phone>55 11 92019-0370</a>
             </div>
           </div>
 
@@ -932,7 +581,7 @@
             </div>
             <div>
               <span>WhatsApp Direto</span>
-              <a href="https://wa.me/55920190370" class="dynamic-whatsapp-link" target="_blank" rel="noreferrer" style="color: #10b981; font-weight: 700;">
+              <a href="https://wa.me/11920190370" class="dynamic-whatsapp-link" target="_blank" rel="noreferrer" style="color: #10b981; font-weight: 700;">
                 55 11 92019-0370 (Falar com Engenheiro)
               </a>
             </div>
@@ -1067,11 +716,11 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
                 <span>Enviar pelo WhatsApp</span>
               </button>
-              <button class="btn btn-outline-light" id="copyProposalBtn" onclick="copyProposalToClipboard()">
+              <button class="btn btn-outline-light" id="copyProposalBtn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                 <span id="copyBtnText">Copiar Texto da Proposta</span>
               </button>
-              <button class="btn btn-outline-light" onclick="resetQuoteForm()">
+              <button class="btn btn-outline-light" id="btnNovaSolicitacao">
                 Nova Solicitação
               </button>
             </div>
@@ -1136,8 +785,8 @@
           <h4>Atendimento Direto</h4>
           <ul>
             <li>👤 Responsável: <strong style="color: #ffffff;" data-company-engineer>Eng. Paulo Macedo Silva</strong></li>
-            <li>📞 Telefone: <a href="tel:5511967440029" style="color: #cbd5e1;" data-company-phone>55 11 96744-0029</a></li>
-            <li>💬 WhatsApp: <a href="https://wa.me/5511967440029" class="dynamic-whatsapp-link" target="_blank" rel="noreferrer" style="color: #10b981;">55 11 96744-0029</a></li>
+            <li>📞 Telefone: <a href="tel:11967440029" style="color: #cbd5e1;" data-company-phone>55 11 96744-0029</a></li>
+            <li>💬 WhatsApp: <a href="https://wa.me/11967440029" class="dynamic-whatsapp-link" target="_blank" rel="noreferrer" style="color: #10b981;">55 11 96744-0029</a></li>
             <li>✉️ E-mail: <a href="mailto:paulo@pm7engenharia.com.br" style="color: #cbd5e1;" data-company-email>paulo@pm7engenharia.com.br</a></li>
             <li>🌐 Website: <a href="https://www.pm7engenharia.com.br" target="_blank" rel="noreferrer" style="color: #38bdf8;" data-company-website>www.pm7engenharia.com.br</a></li>
           </ul>
@@ -1165,10 +814,10 @@
     <div class="modal-container">
       <div class="modal-header">
         <h3 id="projectModalTitle">Detalhes do Projeto</h3>
-        <button class="modal-close-btn" onclick="closeModal('projectModalOverlay')">×</button>
+        <button class="modal-close-btn btn-fechar-modal" data-target="projectModalOverlay">×</button>
       </div>
       <div class="modal-body" id="projectModalBody">
-        <!-- Renderizado dinamicamente via script.js -->
+        <!-- Renderizado dinamicamente -->
       </div>
     </div>
   </div>
@@ -1181,7 +830,7 @@
           <h3>Simulador de Pré-Escopo Técnico</h3>
           <p style="font-size: 0.75rem; color: #94a3b8;">Pré-dimensionamento de escopo e normas para seu projeto</p>
         </div>
-        <button class="modal-close-btn" onclick="closeModal('estimatorModalOverlay')">×</button>
+        <button class="modal-close-btn btn-fechar-modal" data-target="estimatorModalOverlay">×</button>
       </div>
       <div class="modal-body">
         
@@ -1191,16 +840,16 @@
           </label>
           <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;" class="sim-grid-opts">
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simFacility" value="industria" checked onchange="calculateScope()" /> Indústria
+              <input type="radio" name="simFacility" value="industria" checked class="sim-input" /> Indústria
             </label>
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simFacility" value="logistica" onchange="calculateScope()" /> Galpão / CD
+              <input type="radio" name="simFacility" value="logistica" class="sim-input" /> Galpão / CD
             </label>
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simFacility" value="comercial" onchange="calculateScope()" /> Varejo / Mall
+              <input type="radio" name="simFacility" value="comercial" class="sim-input" /> Varejo / Mall
             </label>
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simFacility" value="corporativo" onchange="calculateScope()" /> Hospital / Edif.
+              <input type="radio" name="simFacility" value="corporativo" class="sim-input" /> Hospital / Edif.
             </label>
           </div>
         </div>
@@ -1211,19 +860,19 @@
           </label>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer;">
-              <input type="radio" name="simService" value="subestacao" checked onchange="calculateScope()" /> Subestação & Cabine MT
+              <input type="radio" name="simService" value="subestacao" checked class="sim-input" /> Subestação & Cabine MT
             </label>
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer;">
-              <input type="radio" name="simService" value="qgbt" onchange="calculateScope()" /> QGBT & Barramentos
+              <input type="radio" name="simService" value="qgbt" class="sim-input" /> QGBT & Barramentos
             </label>
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer;">
-              <input type="radio" name="simService" value="spda" onchange="calculateScope()" /> Laudo SPDA & Termografia
+              <input type="radio" name="simService" value="spda" class="sim-input" /> Laudo SPDA & Termografia
             </label>
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer;">
-              <input type="radio" name="simService" value="nr10" onchange="calculateScope()" /> Adequação NR-10 & PIE
+              <input type="radio" name="simService" value="nr10" class="sim-input" /> Adequação NR-10 & PIE
             </label>
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; grid-column: span 2; cursor: pointer;">
-              <input type="radio" name="simService" value="capacitores" onchange="calculateScope()" /> Banco de Capacitores (Eliminar Multas)
+              <input type="radio" name="simService" value="capacitores" class="sim-input" /> Banco de Capacitores (Eliminar Multas)
             </label>
           </div>
         </div>
@@ -1234,23 +883,23 @@
           </label>
           <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;">
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simPower" value="baixa" onchange="calculateScope()" /> Até 300 kVA
+              <input type="radio" name="simPower" value="baixa" class="sim-input" /> Até 300 kVA
             </label>
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simPower" value="media" checked onchange="calculateScope()" /> 300 a 750 kVA
+              <input type="radio" name="simPower" value="media" checked class="sim-input" /> 300 a 750 kVA
             </label>
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simPower" value="alta" onchange="calculateScope()" /> 750-1500 kVA
+              <input type="radio" name="simPower" value="alta" class="sim-input" /> 750-1500 kVA
             </label>
             <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simPower" value="pesada" onchange="calculateScope()" /> +1500 kVA MT
+              <input type="radio" name="simPower" value="pesada" class="sim-input" /> +1500 kVA MT
             </label>
           </div>
         </div>
 
         <!-- Resultado Calculado -->
         <div id="simResultBox" style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.25rem; border-radius: 10px;">
-          <!-- Preenchido via calculateScope() -->
+          <!-- Preenchido via javascript -->
         </div>
 
       </div>
@@ -1262,7 +911,7 @@
        ========================================================================== -->
   <div class="floating-whatsapp">
     <div class="whatsapp-bubble" id="waBubble">
-      <button class="whatsapp-bubble-close" onclick="document.getElementById('waBubble').style.display='none'">×</button>
+      <button class="whatsapp-bubble-close" id="btnFecharWaBubble">×</button>
       <strong>Engenharia Online</strong>
       Precisa de orçamento urgente ou vistoria técnica? Fale agora no WhatsApp!
     </div>
@@ -1272,8 +921,8 @@
     </a>
   </div>
 
-  <!-- JavaScript Nativo -->
-  <script src="./script.js"></script>
+  <!-- JavaScript Modules (SRP) -->
+  <script type="module" src="./src/main.js"></script>
 
 </body>
 </html>
