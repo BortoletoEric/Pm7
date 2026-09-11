@@ -12,13 +12,13 @@ const COMPANY_CONFIG = {
   tradeName: 'Pm7 Engenharia',
   responsibleEngineer: 'Eng. Paulo Macedo Silva',
   crea: 'CREA-SP com ART / Visto Nacional',
-  phone: '55 11 96744-0029',
-  whatsapp: '5511967440029',
+  phone: '55 11 92019-0370',
+  whatsapp: '55920190370',
   email: 'paulo@pm7engenharia.com.br',
   website: 'www.pm7engenharia.com.br',
   address: 'São Paulo - SP',
   cityState: 'São Paulo - SP',
-  emergencyPhone: '55 11 96744-0029 (Eng. Paulo Macedo)',
+  emergencyPhone: '55 11 92019-0370 (Eng. Paulo Macedo)',
 };
 
 const PROJECTS_DATA = [
