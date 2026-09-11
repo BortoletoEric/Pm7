@@ -433,7 +433,9 @@ function applySimulationToForm(title, days, facility) {
   if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
-// 6. Formulário de Contato e Geração de Protocolo
+// 6. Formulário de Contato e Disparo Estático por E-mail (mailto) e WhatsApp
+let lastGeneratedProposalText = '';
+
 function handleContactSubmit(e) {
   e.preventDefault();
 
@@ -441,76 +443,131 @@ function handleContactSubmit(e) {
   const email = document.getElementById('email')?.value.trim();
   const phone = document.getElementById('phone')?.value.trim();
   const company = document.getElementById('companyName')?.value.trim();
-  const serviceType = document.getElementById('serviceType')?.value;
-  const urgency = document.getElementById('urgency')?.value;
-  const description = document.getElementById('description')?.value.trim();
+  const serviceType = document.getElementById('serviceType')?.value || 'Não informado';
+  const urgency = document.getElementById('urgency')?.value || 'Normal';
+  const description = document.getElementById('description')?.value.trim() || 'Solicitação direta de contato técnico para vistoria.';
 
   if (!name || !email || !phone) {
     alert('Por favor, preencha todos os campos obrigatórios (Nome, E-mail e Telefone).');
     return;
   }
 
-  const submitBtn = document.getElementById('submitBtn');
-  if (submitBtn) {
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Registrando Proposta Técnica...';
+  const protocol = `OS-ENG-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+  const destinationEmail = currentCompany.email || 'paulo@pm7engenharia.com.br';
+  const engineerName = currentCompany.responsibleEngineer || 'Eng. Paulo Macedo Silva';
+  const currentDate = new Date().toLocaleString('pt-BR');
+
+  // Assunto estático estruturado
+  const emailSubject = `[PROPOSTA TÉCNICA] ${company ? company + ' - ' : ''}${name} (${protocol})`;
+
+  // Corpo estático do e-mail com todos os dados da proposta
+  const emailBody = 
+`À Diretoria Técnica - ${currentCompany.tradeName}
+A/C: ${engineerName} (${destinationEmail})
+
+==================================================
+SOLICITAÇÃO DE PROPOSTA TÉCNICA
+==================================================
+Protocolo: ${protocol}
+Data do Registro: ${currentDate}
+
+DADOS DO SOLICITANTE:
+• Nome: ${name}
+• Empresa / Obra: ${company || 'Não informada (Pessoa Física / Empreendimento)'}
+• Telefone / WhatsApp: ${phone}
+• E-mail para Retorno: ${email}
+
+ESCOPO DA ENGENHARIA:
+• Tipo de Serviço: ${serviceType}
+• Nível de Urgência: ${urgency.toUpperCase()}
+
+DESCRIÇÃO TÉCNICA DA DEMANDA:
+${description}
+
+==================================================
+Demanda originada através do portal: ${currentCompany.website || 'www.pm7engenharia.com.br'}`;
+
+  lastGeneratedProposalText = emailBody;
+
+  // Link estático nativo de mailto com assunto e corpo codificados
+  const mailtoUrl = `mailto:${encodeURIComponent(destinationEmail)}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+  // Backup opcional no localStorage
+  try {
+    const stored = JSON.parse(localStorage.getItem('pm7_engineering_leads') || '[]');
+    stored.unshift({
+      protocol,
+      name,
+      company,
+      email,
+      phone,
+      serviceType,
+      urgency,
+      description,
+      destinationEmail,
+      date: currentDate
+    });
+    localStorage.setItem('pm7_engineering_leads', JSON.stringify(stored));
+  } catch (err) {
+    console.error(err);
   }
 
-  // Simulação assíncrona robusta (500ms)
-  setTimeout(() => {
-    const protocol = `OS-ENG-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
-    
-    // Salva lead no localStorage para o CEO testar localmente
-    try {
-      const stored = JSON.parse(localStorage.getItem('pm7_engineering_leads') || '[]');
-      stored.unshift({
-        protocol,
-        name,
-        company,
-        email,
-        phone,
-        serviceType,
-        urgency,
-        description,
-        date: new Date().toLocaleString('pt-BR')
-      });
-      localStorage.setItem('pm7_engineering_leads', JSON.stringify(stored));
-    } catch (err) {
-      console.error(err);
+  // Atualiza e exibe tela de sucesso
+  const formElement = document.getElementById('quoteForm');
+  const successBox = document.getElementById('submissionSuccessBox');
+  const protocolDisplay = document.getElementById('protocolDisplay');
+  const emailMailtoBtn = document.getElementById('emailMailtoBtn');
+  const waLeadBtn = document.getElementById('waForwardLeadBtn');
+
+  if (formElement) formElement.style.display = 'none';
+  if (successBox) successBox.classList.add('active');
+  if (protocolDisplay) protocolDisplay.textContent = protocol;
+
+  // Configura botão de Mailto estático direto
+  if (emailMailtoBtn) {
+    emailMailtoBtn.setAttribute('href', mailtoUrl);
+  }
+
+  // Configura botão de WhatsApp direto
+  if (waLeadBtn) {
+    const waText = `*SOLICITAÇÃO DE PROPOSTA TÉCNICA - ${currentCompany.tradeName}*\n\n` +
+      `*Protocolo:* ${protocol}\n` +
+      `*A/C:* ${engineerName}\n` +
+      `*Solicitante:* ${name}\n` +
+      `*Empresa:* ${company || 'Não informada'}\n` +
+      `*Telefone:* ${phone}\n` +
+      `*E-mail:* ${email}\n` +
+      `*Serviço:* ${serviceType}\n` +
+      `*Urgência:* ${urgency?.toUpperCase()}\n\n` +
+      `*Descrição:* ${description}`;
+
+    waLeadBtn.onclick = () => {
+      window.open(`https://wa.me/${currentCompany.whatsapp}?text=${encodeURIComponent(waText)}`, '_blank');
+    };
+  }
+
+  // Aciona automaticamente o mailto nativo
+  window.location.href = mailtoUrl;
+}
+
+// Função para copiar o texto pronto da proposta para a área de transferência (para quem usa Webmail Gmail/Outlook)
+function copyProposalToClipboard() {
+  if (!lastGeneratedProposalText) return;
+
+  navigator.clipboard.writeText(lastGeneratedProposalText).then(() => {
+    const btnText = document.getElementById('copyBtnText');
+    if (btnText) {
+      const old = btnText.textContent;
+      btnText.textContent = '✔ Texto Copiado!';
+      btnText.style.color = '#10b981';
+      setTimeout(() => {
+        btnText.textContent = old;
+        btnText.style.color = '';
+      }, 2500);
     }
-
-    // Exibe tela de sucesso
-    const formElement = document.getElementById('quoteForm');
-    const successBox = document.getElementById('submissionSuccessBox');
-    const protocolDisplay = document.getElementById('protocolDisplay');
-    const waLeadBtn = document.getElementById('waForwardLeadBtn');
-
-    if (formElement) formElement.style.display = 'none';
-    if (successBox) successBox.classList.add('active');
-    if (protocolDisplay) protocolDisplay.textContent = protocol;
-
-    // Configura botão para WhatsApp
-    if (waLeadBtn) {
-      const text = `*SOLICITAÇÃO DE ORÇAMENTO - ${currentCompany.tradeName}*\n\n` +
-        `*Protocolo:* ${protocol}\n` +
-        `*Nome:* ${name}\n` +
-        `*Empresa:* ${company || 'Não informada'}\n` +
-        `*Telefone:* ${phone}\n` +
-        `*E-mail:* ${email}\n` +
-        `*Serviço:* ${serviceType}\n` +
-        `*Urgência:* ${urgency?.toUpperCase()}\n` +
-        `*Detalhes:* ${description || 'Gostaria de agendar visita técnica.'}`;
-
-      waLeadBtn.onclick = () => {
-        window.open(`https://wa.me/${currentCompany.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
-      };
-    }
-
-    if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = `<span>Enviar Solicitação de Proposta Técnica</span>`;
-    }
-  }, 500);
+  }).catch(() => {
+    alert('Texto da proposta pronto. Selecione e copie manualmente.');
+  });
 }
 
 function resetQuoteForm() {
