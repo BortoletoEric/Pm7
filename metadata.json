@@ -1,0 +1,6 @@
+{
+  "name": "Pm7 Engenharia",
+  "description": "Pm7 Engenharia - Engenharia elétrica especializada em projetos, obras e laudos técnicos. Responsável Técnico: Eng. Paulo Macedo Silva.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
