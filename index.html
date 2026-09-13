@@ -186,26 +186,6 @@
 
       </div>
 
-      <!-- Indicadores Numéricos -->
-      <div class="indicators-grid">
-        <div class="indicator-card">
-          <div class="indicator-val">+12 Anos</div>
-          <div class="indicator-label">Experiência em Engenharia</div>
-        </div>
-        <div class="indicator-card">
-          <div class="indicator-val">+380 Obras</div>
-          <div class="indicator-label">Instalações e Projetos Entregues</div>
-        </div>
-        <div class="indicator-card">
-          <div class="indicator-val">100% ART</div>
-          <div class="indicator-label">Responsabilidade Técnica CREA</div>
-        </div>
-        <div class="indicator-card">
-          <div class="indicator-val">0 Acidentes</div>
-          <div class="indicator-label">Compliance Estrito NR-10/NR-35</div>
-        </div>
-      </div>
-
       <!-- Barra de Homologação Concessionárias -->
       <div class="concessionaires-bar">
         <span style="font-weight: 700; text-transform: uppercase;">Homologação & Normas Regulatórias:</span>
@@ -702,7 +682,7 @@
             </span>
             <div class="protocol-badge" id="protocolDisplay">OS-ENG-2026-0000</div>
             <p style="font-size: 0.875rem; color: #475569; max-width: 480px; margin: 0 auto 0.75rem; line-height: 1.5;" id="successEmailNotice">
-              O corpo do e-mail foi preparado com todos os dados técnicos para o <strong style="color: #0f172a;">Eng. Paulo Macedo Silva</strong> (<span style="color: #2563eb;">paulo@pm7engenharia.com.br</span>).
+              O corpo do e-mail foi preparado com todos os dados técnicos para o <strong style="color: #0f172a;">Eng. Paulo Macedo Silva</strong> (<span style="color: #2563eb;">contato@pm7engenharia.com.br</span>).
             </p>
             <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 1.5rem;">
               Escolha abaixo por onde prefere despachar sua demanda técnica:
@@ -760,11 +740,8 @@
         <div class="footer-col">
           <h4>Navegação</h4>
           <ul>
-            <li><a href="#servicos">Serviços Técnicos</a></li>
-            <li><a href="#obras">Portfólio de Obras</a></li>
-            <li><a href="#credenciais">Normas & Segurança NR-10</a></li>
-            <li><a href="#empresa">A Empresa & Metodologia</a></li>
-            <li><a href="#clientes">Clientes & Casos de Sucesso</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#empresa">Sobre a Empresa</a></li>
             <li><a href="#contato">Fale Conosco / Orçamento</a></li>
           </ul>
         </div>
@@ -822,88 +799,7 @@
     </div>
   </div>
 
-  <!-- Modal 2: Simulador de Pré-Escopo Técnico -->
-  <div class="modal-overlay" id="estimatorModalOverlay">
-    <div class="modal-container">
-      <div class="modal-header">
-        <div>
-          <h3>Simulador de Pré-Escopo Técnico</h3>
-          <p style="font-size: 0.75rem; color: #94a3b8;">Pré-dimensionamento de escopo e normas para seu projeto</p>
-        </div>
-        <button class="modal-close-btn btn-fechar-modal" data-target="estimatorModalOverlay">×</button>
-      </div>
-      <div class="modal-body">
-        
-        <div style="margin-bottom: 1.25rem;">
-          <label style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #334155; display: block; margin-bottom: 0.5rem;">
-            1. Tipo de Empreendimento
-          </label>
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;" class="sim-grid-opts">
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simFacility" value="industria" checked class="sim-input" /> Indústria
-            </label>
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simFacility" value="logistica" class="sim-input" /> Galpão / CD
-            </label>
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simFacility" value="comercial" class="sim-input" /> Varejo / Mall
-            </label>
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simFacility" value="corporativo" class="sim-input" /> Hospital / Edif.
-            </label>
-          </div>
-        </div>
 
-        <div style="margin-bottom: 1.25rem;">
-          <label style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #334155; display: block; margin-bottom: 0.5rem;">
-            2. Serviço Principal Desejado
-          </label>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer;">
-              <input type="radio" name="simService" value="subestacao" checked class="sim-input" /> Subestação & Cabine MT
-            </label>
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer;">
-              <input type="radio" name="simService" value="qgbt" class="sim-input" /> QGBT & Barramentos
-            </label>
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer;">
-              <input type="radio" name="simService" value="spda" class="sim-input" /> Laudo SPDA & Termografia
-            </label>
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer;">
-              <input type="radio" name="simService" value="nr10" class="sim-input" /> Adequação NR-10 & PIE
-            </label>
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; grid-column: span 2; cursor: pointer;">
-              <input type="radio" name="simService" value="capacitores" class="sim-input" /> Banco de Capacitores (Eliminar Multas)
-            </label>
-          </div>
-        </div>
-
-        <div style="margin-bottom: 1.5rem;">
-          <label style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #334155; display: block; margin-bottom: 0.5rem;">
-            3. Porte Estimado de Carga
-          </label>
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;">
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simPower" value="baixa" class="sim-input" /> Até 300 kVA
-            </label>
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simPower" value="media" checked class="sim-input" /> 300 a 750 kVA
-            </label>
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simPower" value="alta" class="sim-input" /> 750-1500 kVA
-            </label>
-            <label style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 8px; font-size: 0.75rem; text-align: center; cursor: pointer;">
-              <input type="radio" name="simPower" value="pesada" class="sim-input" /> +1500 kVA MT
-            </label>
-          </div>
-        </div>
-
-        <!-- Resultado Calculado -->
-        <div id="simResultBox" style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.25rem; border-radius: 10px;">
-          <!-- Preenchido via javascript -->
-        </div>
-
-      </div>
-    </div>
   </div>
 
   <!-- ==========================================================================

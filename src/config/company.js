@@ -5,7 +5,7 @@ export const COMPANY_CONFIG = {
   crea: 'CREA-SP com ART / Visto Nacional',
   phone: '55 11 92019-0370',
   whatsapp: '920190370',
-  email: 'paulo@pm7engenharia.com.br',
+  email: 'contato@pm7engenharia.com.br',
   website: 'www.pm7engenharia.com.br',
   address: 'São Paulo - SP',
   cityState: 'São Paulo - SP',
