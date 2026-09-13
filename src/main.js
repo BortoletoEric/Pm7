@@ -18,7 +18,7 @@ function applyCompanyToDOM(company) {
 
   const cleanPhone = company.phone.replace(/\D/g, '');
   document.querySelectorAll('a[href^="tel:"]').forEach(el => el.setAttribute('href', `tel:${cleanPhone}`));
-  document.querySelectorAll('a[href^="mailto:"]').forEach(el => el.setAttribute('href', `mailto:${company.email}`));
+  document.querySelectorAll('a[data-company-email][href^="mailto:"]').forEach(el => el.setAttribute('href', `mailto:${company.email}`));
 
   const waLinks = document.querySelectorAll('.dynamic-whatsapp-link');
   waLinks.forEach(el => {
