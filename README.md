@@ -1,20 +1,36 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# PM7 Engenharia - Portfólio e Landing Page
 
-# Run and deploy your AI Studio app
+Este repositório contém o código-fonte da aplicação web (landing page/portfólio) da PM7 Engenharia. Baseado na estrutura de arquivos, o projeto é desenvolvido em **React**, **TypeScript** e empacotado via **Vite**.
 
-This contains everything you need to run your app locally.
+## Tecnologias Utilizadas
+- **Frontend:** React, TypeScript
+- **Build Tool:** Vite
+- **Estilização:** CSS (index.css, style.css)
 
-View your app in AI Studio: https://ai.studio/apps/0410476b-4c03-4b20-9d9b-eb307699b25e
+## Estrutura de Diretórios (`src/`)
 
-## Run Locally
+- **/components:** Componentes de interface da aplicação.
+   - Seções da página: `AboutSection.tsx`, `ClientsSection.tsx`, `ContactSection.tsx`, `CredentialsSection.tsx`, `Hero.tsx`, `ProjectsSection.tsx`, `ServicesSection.tsx`.
+   - Layout e Modais: `Header.tsx`, `Footer.tsx`, `ProjectModal.tsx`, `CompanyCustomizerModal.tsx`, `ScopeEstimatorModal.tsx`, `WhatsAppFloating.tsx`.
+- **/controllers:** Lógica de negócio e manipulação de estado (`formController.js`, `portfolioController.js`).
+- **/data:** Dados estáticos e de configuração de conteúdo (`companyData.ts`, `projects.js`).
+- **/config:** Arquivos de configuração da empresa (`company.js`).
+- **/services:** Serviços de integração, incluindo templates de e-mail (`emailTemplate.js`).
+- **/utils:** Funções utilitárias e scripts auxiliares (`modal.js`).
 
-**Prerequisites:**  Node.js
+## Instalação e Execução
 
+1. Instale as dependências do projeto:
+```bash
+npm install
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+2. Execute o servidor de desenvolvimento:
+```bash
+npm run dev
+```
+
+3. Para compilar o projeto para produção:
+```bash
+npm run build
+```

@@ -302,7 +302,7 @@ export const CompanyCustomizerModal: React.FC<CompanyCustomizerModalProps> = ({
                     </div>
                     <div className="text-slate-600 flex flex-wrap gap-x-4 gap-y-1 text-[11px]">
                       <span>📞 {lead.phone}</span>
-                      <span>✉️ {lead.email}</span>
+                      <span>📩 {lead.email}</span>
                       <span className="font-semibold text-slate-800">Serviço: {lead.serviceType}</span>
                     </div>
                     {lead.description && (
