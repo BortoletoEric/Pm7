@@ -1,7 +1,5 @@
 import { COMPANY_CONFIG } from './config/company.js';
-import { initPortfolio } from './controllers/portfolioController.js';
 import { initFormController, initServiceQuoteButtons } from './controllers/formController.js';
-import { initModals } from './utils/modal.js';
 
 // Função utilitária para aplicar os dados da empresa no DOM (em breve será movida para um utils/dom.js ou controller)
 function applyCompanyToDOM(company) {
@@ -68,12 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Injeta variáveis estáticas da empresa
   applyCompanyToDOM(COMPANY_CONFIG);
   
-  // 2. Inicializa utilitários globais (Modais, Interações)
-  initModals();
+  // 2. Inicializa interações globais
   initPageInteractions();
 
-  // 3. Inicializa Controladores de Sessão
-  initPortfolio();
+  // 3. Inicializa o formulário e os botões de orçamento
   initFormController();
   initServiceQuoteButtons();
   
